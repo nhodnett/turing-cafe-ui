@@ -4,6 +4,15 @@ describe('Reservations', () => {
     cy.visit('http://localhost:3000/')
   })
 
+      // it('should see a title and a form on page load', () => {
+  //   cy.get('.app-title').should('contain', 'Turing Cafe Reservations')
+  //   cy.get('input[name="name"]').should('exist')
+  //   cy.get('input[name="date"]').should('exist')
+  //   cy.get('input[name="time"]').should('exist')
+  //   cy.get('input[name="number"]').should('exist')
+  //   cy.get('button').should('exist')
+  // })
+
   it('should show existing reservations when the page loads', () => {
     cy.get('.card').should('have.length', 3)
   })

@@ -7,7 +7,8 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      reservations: []
+      reservations: [],
+      error: ''
     }
 
   }
@@ -17,6 +18,9 @@ class App extends Component {
     fetch(`http://localhost:3001/api/v1/reservations`)
     .then(response => response.json())
     .then(reservations => this.setState({ reservations }))
+    .catch(error => {
+      this.setState({ error: error.message })
+    })
   }
 
   postReservation = (newReservation) => {
@@ -29,6 +33,9 @@ class App extends Component {
       }
     })
     .then(response => response.json())
+    .catch(error => {
+      this.setState({ error: error.message })
+    })
   }
 
   addReservation = (newReservation) => {
